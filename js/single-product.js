@@ -28,13 +28,14 @@ const showProduct = (info) => {
     if (btn) {
         btn.addEventListener('click', () => {
             try {
-                const raw = sessionStorage.getItem(SESSION_STORAGE_CART) || '[]';
-                const arr = Array.isArray(JSON.parse(raw)) ? JSON.parse(raw) : [];
-                const pid = Number(productID);
-                if (!arr.includes(pid)) arr.push(pid);
-                sessionStorage.setItem(SESSION_STORAGE_CART, JSON.stringify(arr));
+                const sessionCart = sessionStorage.getItem(SESSION_STORAGE_CART) || '[]';
+                const parsedCart = JSON.parse(sessionCart);
+                const productIds = Array.isArray(parsedCart) ? parsedCart : [];
+                const currentProductId = Number(productID);
+                if (!productIds.includes(currentProductId)) productIds.push(currentProductId);
+                sessionStorage.setItem(SESSION_STORAGE_CART, JSON.stringify(productIds));
                 alert('Added to cart');
-            } catch (_) {
+            } catch (error) {
                 sessionStorage.setItem(SESSION_STORAGE_CART, JSON.stringify([Number(productID)]));
                 alert('Added to cart');
             }
