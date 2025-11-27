@@ -5,8 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home | Fake shop</title>
-     <script type="module" src="./js/product-list.js"></script>
-     <script type="module" src="./js/auth.js"></script>
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
@@ -17,11 +16,11 @@
         <ul>
             <li><a href="index.html" title="Homepage" class="active">Home</a></li>
             <li><a id="login-link" href="login.htm" title="Login">Login</a></li>
+            <li class="hidden"><a id="logout-link" href="#">Logout</a></li>
             <li><a href="signup.htm" title="Sign up">Sign up</a></li>
-            <li><a id="logout-link" href="#" class="hidden">Logout</a></li>
         </ul>
     </nav>
-    
+
     <main>
         <section>
             <div id="product-list"></div>
@@ -38,6 +37,9 @@
             <span class="product-category"></span>
         </article>
     </template>
+
+    <script type="module" src="./js/product-list.js"></script>
+    <script type="module" src="./js/auth.js"></script>
 </body>
 
 </html>

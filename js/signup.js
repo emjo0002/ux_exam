@@ -12,16 +12,26 @@ if (container) {
 
     const newUser = { email, password };
 
-    fetch(`${USERS_BASE_URL}/users`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(newUser),
-    })
+    fetch(`${USERS_BASE_URL}/users`)
+      .then(response => response.json())
+      .then(users => {
+        const exists = Array.isArray(users) && users.some(user => (user.email || '') === email);
+        if (exists) {
+          showModal('Email already exists');
+          return Promise.reject('DUPLICATE_EMAIL');
+        }
+        return fetch(`${USERS_BASE_URL}/users`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(newUser),
+        });
+      })
       .then((response) => response.json())
       .then(() => {
-        e.target.reset();
-        showModal('Signup successful!');
+        window.location.href = 'login.htm';
       })
-      .catch(() => showModal('An error occurred.'));
+      .catch((err) => {
+        if (err !== 'DUPLICATE_EMAIL') showModal('An error occurred.');
+      });
   });
 }

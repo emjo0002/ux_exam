@@ -1,20 +1,27 @@
+import { SESSION_STORAGE_USER_EMAIL } from './info.js';
+
 // Check if user is logged in and toggle login/logout links
-const userEmail = sessionStorage.getItem('fake-shop_user-email');
-const loginLink = document.querySelector('header a#login-link');
-const logoutLink = document.querySelector('header a#logout-link');
+const userEmail = sessionStorage.getItem(SESSION_STORAGE_USER_EMAIL);
+const loginLink = document.getElementById('login-link');
+const logoutLink = document.getElementById('logout-link');
+const loginItem = loginLink?.closest('li');
+const logoutItem = logoutLink?.closest('li');
 
 if (userEmail) {
-  if (loginLink) loginLink.classList.add('hidden');
-  if (logoutLink) logoutLink.classList.remove('hidden');
+    // User is logged in, show logout and hide login
+    if (loginItem) loginItem.classList.add("hidden");
+    if (logoutItem) logoutItem.classList.remove("hidden");
 } else {
-  if (loginLink) loginLink.classList.remove('hidden');
-  if (logoutLink) logoutLink.classList.add('hidden');
+    // User is not logged in, show login and hide logout
+    if (loginItem) loginItem.classList.remove("hidden");
+    if (logoutItem) logoutItem.classList.add("hidden");
 }
 
+// Handle logout click
 if (logoutLink) {
-  logoutLink.addEventListener('click', (e) => {
-    e.preventDefault();
-    sessionStorage.removeItem('fake-shop_user-email');
-    window.location.reload();
-  });
+    logoutLink.addEventListener("click", (e) => {
+        e.preventDefault();
+        sessionStorage.removeItem(SESSION_STORAGE_USER_EMAIL);
+        window.location.reload();
+    });
 }
