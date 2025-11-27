@@ -1,5 +1,28 @@
 @import 'variables.css';
 
-.hidden { 
-    display: none; 
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+
+    main {
+       padding: 0.5rem 1rem 1rem;
+       position: relative;
+       top: 0;
+       max-width: 1250px;
+       margin-inline: auto;
+    }
+}
+
+img {
+    width: 100%;
+    height: auto; 
+}
+
+.hidden {
+    display: none;
 }
