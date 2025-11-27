@@ -1,7 +1,7 @@
 {
   "users": [
     {
-      "id": 1
+      "id": "1"
     },
     {
       "id": "7a6b",
@@ -17,6 +17,11 @@
       "id": "be23",
       "email": "1@1",
       "password": "1"
+    },
+    {
+      "id": "8e59",
+      "email": "e@e.dk",
+      "password": "test"
     }
   ]
 }

@@ -22,5 +22,5 @@ const showProduct = (info) => {
     productInfo.querySelector('.product-price').innerText = info.price;
     productInfo.querySelector('.product-category').innerText = info.category;
 
-    productInfo.querySelector('#product-description').innerText = info.description;
+    productInfo.querySelector('.product-description').innerText = info.description;
 };
