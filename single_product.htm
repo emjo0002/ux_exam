@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/single_product.css">
     <script type="module" src="./js/single-product.js"></script>
+    <script type="module" src="./js/auth.js"></script>
     <title>Product</title>
 
 
@@ -19,11 +20,13 @@
     <nav>
         <ul>
             <li><a href="index.html" title="Homepage">Home</a></li>
+            <li><a href="cart.htm" title="Cart">Cart</a></li>
             <li><a id="login-link" href="login.htm" title="Login">Login</a></li>
             <li class="hidden"><a id="logout-link" href="#">Logout</a></li>
             <li><a href="signup.htm" title="Sign up">Sign up</a></li>
         </ul>
     </nav>
+
 
     <main id="product-info">
         <img src="" alt="">
@@ -34,6 +37,8 @@
             </header>
             <p class="product-attribute product-price"></p>
             <p class="product-attribute product-description"></p>
+            <button>add to cart</button>
+
         </section>
     </main>
 </body>
