@@ -44,11 +44,11 @@ const init = async () => {
       const li = document.createElement('li');
       li.innerHTML = `
         <article class="product">
-          <img src="${product.image}" alt="${product.title}" width="50" height="50" loading="lazy" />
-          <div>
-            <a href="single_product.htm?id=${product.id}">${product.title}</a>
-            <div class="product-price">$${product.price}</div>
-          </div>
+          <a href="single_product.htm?id=${product.id}">
+            <img src="${product.image}" alt="${product.title}" width="50" height="50" />
+          </a>
+          <a href="single_product.htm?id=${product.id}">${product.title}</a>
+          <div class="product-price">${product.price} DKK</div>
           <button type="button" data-product-id="${product.id}">Remove</button>
         </article>
       `;
@@ -57,6 +57,16 @@ const init = async () => {
 
     container.innerHTML = '<h2>Your Cart</h2>';
     container.appendChild(list);
+
+    // Total price + actions container
+    const summary = document.createElement('div');
+    summary.className = 'cart-summary';
+
+    const total = products.reduce((sum, product) => sum + Number(product.price || 0), 0);
+    const totalElement = document.createElement('div');
+    totalElement.className = 'cart-total';
+    totalElement.textContent = `Total: ${total.toFixed(2)} DKK`;
+    summary.appendChild(totalElement);
 
     // Attach remove handlers
     list.querySelectorAll('[data-product-id]').forEach(removeButton => {
@@ -77,7 +87,9 @@ const init = async () => {
       setCartProductIdsInSession([]);
       init();
     });
-    container.appendChild(emptyCartButton);
+    summary.appendChild(emptyCartButton);
+
+    container.appendChild(summary);
   } catch (_) {
     renderEmpty('Failed to load cart.');
   }
