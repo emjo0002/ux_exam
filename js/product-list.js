@@ -31,7 +31,7 @@ products.forEach(product => {
     thumbnail.setAttribute('src', product.image);
     thumbnail.setAttribute('alt', product.title);
     
-    productCard.querySelector('.product-price').innerText = product.price;
+    productCard.querySelector('.product-price').innerText = `${product.price} DKK`;
     productCard.querySelector('.product-category').innerText = product.category;
     
     fragment.append(productCard);
