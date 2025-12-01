@@ -1,4 +1,4 @@
-import { BASE_URL, SESSION_STORAGE_CART } from './info.js';
+import { BASE_URL, SESSION_STORAGE_CART, SESSION_STORAGE_USER_EMAIL } from './info.js';
 
 const loadRelatedProducts = async (currentProduct) => {
   const container = document.querySelector('#related-products .related-list');
@@ -54,19 +54,38 @@ const showProduct = (info) => {
     
     const btn = productInfo.querySelector('button');
     if (btn) {
-        btn.addEventListener('click', () => {
-            try {
-                const sessionCart = sessionStorage.getItem(SESSION_STORAGE_CART) || '[]';
-                const parsedCart = JSON.parse(sessionCart);
-                const productIds = Array.isArray(parsedCart) ? parsedCart : [];
-                const currentProductId = Number(productID);
-                if (!productIds.includes(currentProductId)) productIds.push(currentProductId);
-                sessionStorage.setItem(SESSION_STORAGE_CART, JSON.stringify(productIds));
-                alert('Added to cart');
-            } catch (error) {
-                sessionStorage.setItem(SESSION_STORAGE_CART, JSON.stringify([Number(productID)]));
-                alert('Added to cart');
-            }
-        });
+        const userEmail = sessionStorage.getItem(SESSION_STORAGE_USER_EMAIL);
+
+        if (!userEmail) {
+            btn.disabled = true;
+        } else {
+            btn.addEventListener('click', () => {
+                const quantityInput = document.querySelector('#quantity');
+                const quantity = parseInt(quantityInput.value, 10);
+
+                if (quantity > 0) {
+                    try {
+                        const sessionCart = sessionStorage.getItem(SESSION_STORAGE_CART) || '[]';
+                        const cart = JSON.parse(sessionCart);
+                        const productIds = Array.isArray(cart) ? cart : [];
+
+                        const currentProductId = Number(productID);
+                        const existingProduct = productIds.find(p => p.id === currentProductId);
+
+                        if (existingProduct) {
+                            existingProduct.quantity += quantity;
+                        } else {
+                            productIds.push({ id: currentProductId, quantity });
+                        }
+
+                        sessionStorage.setItem(SESSION_STORAGE_CART, JSON.stringify(productIds));
+                        alert('Added to cart');
+                    } catch (error) {
+                        sessionStorage.setItem(SESSION_STORAGE_CART, JSON.stringify([{ id: Number(productID), quantity }]));
+                        alert('Added to cart');
+                    }
+                }
+            });
+        }
     }
 };
