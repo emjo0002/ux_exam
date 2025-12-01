@@ -36,6 +36,15 @@ main {
       width: fit-content;
       padding: 0.5rem 1rem;
     }
+
+    .quantity-selector {
+      margin: 0.5rem 0;
+
+      input {
+        width: 50px;
+        padding: 0.25rem;
+      }
+    }
   }
 }
 
