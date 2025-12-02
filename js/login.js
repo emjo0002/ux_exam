@@ -1,4 +1,4 @@
-import {USERS_BASE_URL, SESSION_STORAGE_USER_EMAIL} from "./info.js";
+import {USERS_BASE_URL, LOCAL_STORAGE_USER_EMAIL} from "./info.js";
 import {showModal} from "./modal.js";
 
 document.querySelector("#login-form form").addEventListener("submit", (e) => {
@@ -15,7 +15,7 @@ document.querySelector("#login-form form").addEventListener("submit", (e) => {
         users.forEach(user => {
             if (user.email === email && user.password === password) {
                 found = true;
-                sessionStorage.setItem(SESSION_STORAGE_USER_EMAIL, email);
+                localStorage.setItem(LOCAL_STORAGE_USER_EMAIL, email);
                 window.location.href = "index.html";
             }
         });

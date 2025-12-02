@@ -102,3 +102,19 @@ footer {
   font-size: 0.85rem;
   color: #666;
 }
+
+fieldset {
+  padding: 16px;
+  margin-bottom: 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin: 20px 0;
+}
+
+fieldset input {
+  display: block;
+  width: 100%;
+  margin: 8px 0;
+  padding: 8px;
+}
+

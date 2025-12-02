@@ -1,7 +1,7 @@
-import { SESSION_STORAGE_USER_EMAIL, SESSION_STORAGE_CART } from './info.js';
+import { LOCAL_STORAGE_USER_EMAIL } from './info.js';
 
 // Check if user is logged in and toggle login/logout links
-const userEmail = sessionStorage.getItem(SESSION_STORAGE_USER_EMAIL);
+const userEmail = localStorage.getItem(LOCAL_STORAGE_USER_EMAIL);
 const loginLink = document.getElementById('login-link');
 const logoutLink = document.getElementById('logout-link');
 const signupLink = document.getElementById('signup-link');
@@ -25,8 +25,7 @@ if (userEmail) {
 if (logoutLink) {
     logoutLink.addEventListener("click", (e) => {
         e.preventDefault();
-        sessionStorage.removeItem(SESSION_STORAGE_USER_EMAIL);
-        sessionStorage.removeItem(SESSION_STORAGE_CART);
+        localStorage.removeItem(LOCAL_STORAGE_USER_EMAIL);
         window.location.reload();
     });
 }

@@ -1,4 +1,4 @@
-import { BASE_URL, SESSION_STORAGE_CART, SESSION_STORAGE_USER_EMAIL } from './info.js';
+import { BASE_URL, LOCAL_STORAGE_USER_EMAIL, LOCAL_STORAGE_CART } from './info.js';
 
 const loadRelatedProducts = async (currentProduct) => {
   const container = document.querySelector('#related-products .related-list');
@@ -14,10 +14,10 @@ const loadRelatedProducts = async (currentProduct) => {
 
     container.innerHTML = related.map(product => `
       <article class="product">
-        <a href="single_product.htm?id=${product.id}">
+        <a href="product.htm?id=${product.id}">
           <img src="${product.image}" alt="${product.title}" />
         </a>
-        <h3><a href="single_product.htm?id=${product.id}">${product.title}</a></h3>
+        <h3><a href="product.htm?id=${product.id}">${product.title}</a></h3>
         <p class="product-price">${product.price} DKK</p>
         <span class="product-category">${product.category}</span>
       </article>
@@ -34,7 +34,6 @@ fetch(`${BASE_URL}/${productID}`)
 .then(response => response.json())
 .then(data => {
     showProduct(data);
-    loadRelatedProducts(data);
 })
 .catch(error => console.log(error));
 
@@ -54,7 +53,7 @@ const showProduct = (info) => {
     
     const btn = productInfo.querySelector('button');
     if (btn) {
-        const userEmail = sessionStorage.getItem(SESSION_STORAGE_USER_EMAIL);
+        const userEmail = localStorage.getItem(LOCAL_STORAGE_USER_EMAIL);
 
         if (!userEmail) {
             btn.disabled = true;
@@ -65,23 +64,30 @@ const showProduct = (info) => {
 
                 if (quantity > 0) {
                     try {
-                        const sessionCart = sessionStorage.getItem(SESSION_STORAGE_CART) || '[]';
-                        const cart = JSON.parse(sessionCart);
-                        const productIds = Array.isArray(cart) ? cart : [];
+                        const key = `${LOCAL_STORAGE_CART}${userEmail}`;
+                        // Prefer localStorage per-user cart
+                        const localCartRaw = localStorage.getItem(key);
+                        let items = [];
+                        if (localCartRaw) {
+                            const parsed = JSON.parse(localCartRaw);
+                            if (Array.isArray(parsed)) items = parsed;
+                        }
 
                         const currentProductId = Number(productID);
-                        const existingProduct = productIds.find(p => p.id === currentProductId);
+                        const existingProduct = items.find(p => p.id === currentProductId);
 
                         if (existingProduct) {
                             existingProduct.quantity += quantity;
                         } else {
-                            productIds.push({ id: currentProductId, quantity });
+                            items.push({ id: currentProductId, quantity });
                         }
 
-                        sessionStorage.setItem(SESSION_STORAGE_CART, JSON.stringify(productIds));
+                        localStorage.setItem(key, JSON.stringify(items));
                         alert('Added to cart');
-                    } catch (error) {
-                        sessionStorage.setItem(SESSION_STORAGE_CART, JSON.stringify([{ id: Number(productID), quantity }]));
+                    } catch (_) {
+                        // Fallback: at least try to save a minimal local cart
+                        const key = `${LOCAL_STORAGE_CART}${userEmail}`;
+                        localStorage.setItem(key, JSON.stringify([{ id: Number(productID), quantity }]));
                         alert('Added to cart');
                     }
                 }

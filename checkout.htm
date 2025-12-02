@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Checkout</title>
+    <script type="module" src="./js/auth.js"></script>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Fake shop</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html" title="Homepage">Home</a></li>
+            <li><a href="cart.htm" title="Cart">Cart</a></li>
+            <li><a id="login-link" href="login.htm" title="Login">Login</a></li>
+            <li class="hidden"><a id="logout-link" href="#">Logout</a></li>
+            <li><a id="signup-link" href="signup.htm" title="Sign up">Sign up</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="checkout">
+            <h2>Checkout</h2>
+            <form id="checkout-form">
+                <fieldset>
+                    <legend>Delivery Address</legend>
+                    <input type="text" id="delivery-name" name="deliveryName" placeholder="Full name" required>
+                    <input type="text" id="delivery-address" name="deliveryAddress" placeholder="Address" required>
+                    <input type="text" id="delivery-city" name="deliveryCity" placeholder="City" required>
+                    <input type="text" id="delivery-zip" name="deliveryZip" placeholder="ZIP" required>
+                    <input type="text" id="delivery-country" name="deliveryCountry" placeholder="Country" required>
+                </fieldset>
+
+                <div class="form-control">
+                    <label for="billing-different">
+                        <input type="checkbox" id="billing-different" name="billingDifferent">
+                        Billing address is different
+                    </label>
+                </div>
+
+                <fieldset id="billing-fieldset" class="hidden">
+                    <legend>Billing Address</legend>
+                    <input type="text" id="billing-name" name="billingName" placeholder="Full name" required>
+                    <input type="text" id="billing-address" name="billingAddress" placeholder="Address" required>
+                    <input type="text" id="billing-city" name="billingCity" placeholder="City" required>
+                    <input type="text" id="billing-zip" name="billingZip" placeholder="ZIP" required>
+                    <input type="text" id="billing-country" name="billingCountry" placeholder="Country" required>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Payment</legend>
+                    <input type="text" id="cc-number" name="ccNumber" inputmode="numeric" autocomplete="cc-number"
+                        placeholder="Credit card number" required>
+                    <input type="text" id="cc-exp" name="ccExp" inputmode="numeric" autocomplete="cc-exp"
+                        placeholder="MM/YY" required>
+                    <input type="text" id="cc-cvc" name="ccCvc" inputmode="numeric" autocomplete="cc-csc"
+                        placeholder="CVC" required>
+                </fieldset>
+
+                <button type="submit">Confirm Order</button>
+            </form>
+
+            <div id="checkout-result" class="hidden"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Fake shop &copy; 2025</p>
+    </footer>
+
+    <script type="module" src="./js/checkout.js"></script>
+</body>
+
+</html>

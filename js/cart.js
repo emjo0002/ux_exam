@@ -1,18 +1,18 @@
-import { BASE_URL, SESSION_STORAGE_CART, SESSION_STORAGE_USER_EMAIL } from './info.js';
+import { BASE_URL, LOCAL_STORAGE_USER_EMAIL, LOCAL_STORAGE_CART } from './info.js';
 
 const container = document.querySelector('#cart');
 
-const getCartItemsFromSession = () => {
+const getCartItems = () => {
+  const userEmail = localStorage.getItem(LOCAL_STORAGE_USER_EMAIL);
+  if (!userEmail) return [];
+  const key = `${LOCAL_STORAGE_CART}${userEmail}`;
   try {
-    const sessionCart = sessionStorage.getItem(SESSION_STORAGE_CART) || '[]';
-    const parsedCart = JSON.parse(sessionCart);
-    if (Array.isArray(parsedCart) && parsedCart.every(item => typeof item === 'object' && item.id && item.quantity)) {
-      return parsedCart;
-    }
-    if (Array.isArray(parsedCart) && parsedCart.every(item => typeof item === 'number')) {
-      const newCart = parsedCart.map(id => ({ id, quantity: 1 }));
-      setCartItemsInSession(newCart);
-      return newCart;
+    const localCartRaw = localStorage.getItem(key);
+    if (localCartRaw) {
+      const localCart = JSON.parse(localCartRaw);
+      if (Array.isArray(localCart) && localCart.every(item => typeof item === 'object' && item.id && item.quantity)) {
+        return localCart;
+      }
     }
     return [];
   } catch (_) {
@@ -20,8 +20,11 @@ const getCartItemsFromSession = () => {
   }
 };
 
-const setCartItemsInSession = (cartItems) => {
-  sessionStorage.setItem(SESSION_STORAGE_CART, JSON.stringify(cartItems));
+const setCartItems = (cartItems) => {
+  const userEmail = localStorage.getItem(LOCAL_STORAGE_USER_EMAIL);
+  if (!userEmail) return;
+  const key = `${LOCAL_STORAGE_CART}${userEmail}`;
+  localStorage.setItem(key, JSON.stringify(cartItems));
 };
 
 const renderEmpty = (msg) => {
@@ -35,10 +38,10 @@ const renderEmpty = (msg) => {
 const init = async () => {
   if (!container) return;
 
-  let cartItems = getCartItemsFromSession();
+  let cartItems = getCartItems();
 
   if (cartItems.length === 0) {
-    const userEmail = sessionStorage.getItem(SESSION_STORAGE_USER_EMAIL);
+    const userEmail = localStorage.getItem(LOCAL_STORAGE_USER_EMAIL);
     const message = userEmail ? 'Your cart is empty.' : 'Login to get items in your cart';
     renderEmpty(message);
     return;
@@ -61,10 +64,10 @@ const init = async () => {
       const li = document.createElement('li');
       li.innerHTML = `
         <article class="product">
-          <a href="single_product.htm?id=${product.id}">
+          <a href="product.htm?id=${product.id}">
             <img src="${product.image}" alt="${product.title}" width="50" height="50" />
           </a>
-          <a href="single_product.htm?id=${product.id}">${product.title}</a>
+          <a href="product.htm?id=${product.id}">${product.title}</a>
           <div class="product-quantity">
             <button type="button" class="quantity-change" data-product-id="${product.id}" data-change="-1">-</button>
             <span>${cartItem.quantity}</span>
@@ -88,11 +91,17 @@ const init = async () => {
     totalElement.textContent = `Total: ${total.toFixed(2)} DKK`;
     summary.appendChild(totalElement);
 
+    const checkoutLink = document.createElement('a');
+    checkoutLink.href = 'checkout.htm';
+    checkoutLink.className = 'btn-checkout';
+    checkoutLink.textContent = 'Proceed to checkout';
+    summary.appendChild(checkoutLink);
+
     list.querySelectorAll('.quantity-change').forEach(button => {
       button.addEventListener('click', () => {
         const productId = Number(button.dataset.productId);
         const change = Number(button.dataset.change);
-        const currentCartItems = getCartItemsFromSession();
+        const currentCartItems = getCartItems();
         const itemToUpdate = currentCartItems.find(item => item.id === productId);
 
         if (itemToUpdate) {
@@ -100,7 +109,7 @@ const init = async () => {
         }
 
         const updatedCartItems = currentCartItems.filter(item => item.quantity > 0);
-        setCartItemsInSession(updatedCartItems);
+        setCartItems(updatedCartItems);
         init();
       });
     });
@@ -108,9 +117,9 @@ const init = async () => {
     list.querySelectorAll('.remove-item').forEach(removeButton => {
       removeButton.addEventListener('click', () => {
         const productId = Number(removeButton.dataset.productId);
-        const currentCartItems = getCartItemsFromSession();
+        const currentCartItems = getCartItems();
         const updatedCartItems = currentCartItems.filter(item => item.id !== productId);
-        setCartItemsInSession(updatedCartItems);
+        setCartItems(updatedCartItems);
         init();
       });
     });
@@ -119,7 +128,7 @@ const init = async () => {
     emptyCartButton.type = 'button';
     emptyCartButton.textContent = 'Empty cart';
     emptyCartButton.addEventListener('click', () => {
-      setCartItemsInSession([]);
+      setCartItems([]);
       init();
     });
     summary.appendChild(emptyCartButton);

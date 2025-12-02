@@ -1,25 +1,26 @@
 import { BASE_URL } from './info.js';
 
-const products = await fetch(`${BASE_URL}`) 
-    .then(response => response.json())
-    .catch(error => {
-        console.error('Error fetching products:', error);
-        return []; 
-    });
-
 const assignLink = (anchor, url, text) => {
     anchor.href = url;
     anchor.title = text;
 };
 
-const fragment = document.createDocumentFragment();
+const container = document.querySelector('#product-list');
 
-products.forEach(product => {
-    
-    const productCard = document.querySelector('#product-card').content.cloneNode(true);
+async function loadProducts() {
+  if (!container) return;
+  container.textContent = 'Loading products…';
 
-    const linkURL = `single_product.htm?id=${product.id}`;
-    
+    try {
+    const res = await fetch(`${BASE_URL}`);
+    const products = await res.json();
+
+    const fragment = document.createDocumentFragment();
+    products.forEach(product => {
+      const productCard = document.querySelector('#product-card').content.cloneNode(true);
+
+    const linkURL = `product.htm?id=${product.id}`;
+
     const headerLink = productCard.querySelector('h3 > a');
     headerLink.innerText = product.title;
     assignLink(headerLink, linkURL, product.title);
@@ -30,11 +31,20 @@ products.forEach(product => {
     const thumbnail = productCard.querySelector('img');
     thumbnail.setAttribute('src', product.image);
     thumbnail.setAttribute('alt', product.title);
-    
+    thumbnail.setAttribute('loading', 'lazy');
+
     productCard.querySelector('.product-price').innerText = `${product.price} DKK`;
     productCard.querySelector('.product-category').innerText = product.category;
     
     fragment.append(productCard);
-});
+    });
 
-document.querySelector('#product-list').append(fragment);
+    container.textContent = '';
+    container.append(fragment);
+    } catch (error) {
+    console.error('Error fetching products:', error);
+    container.textContent = 'Failed to load products. Please try again later.';
+    }
+}
+
+loadProducts();
