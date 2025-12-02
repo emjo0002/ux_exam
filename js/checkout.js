@@ -1,4 +1,5 @@
 import { LOCAL_STORAGE_USER_EMAIL, LOCAL_STORAGE_CART } from './info.js';
+import { showModal } from './modal.js';
 
 const form = document.querySelector('#checkout-form');
 const result = document.querySelector('#checkout-result');
@@ -8,17 +9,12 @@ const billingFieldset = document.querySelector('#billing-fieldset');
 const getUserEmail = () => localStorage.getItem(LOCAL_STORAGE_USER_EMAIL);
 const cartKeyFor = (email) => `${LOCAL_STORAGE_CART}${email}`;
 
-const showMessage = (msg) => {
-  if (!result) return;
-  result.classList.remove('hidden');
-  result.textContent = msg;
-};
+const showMessage = (msg) => { showModal(msg); };
 
 if (form) {
   const userEmail = getUserEmail();
   if (!userEmail) {
     showMessage('Please log in to proceed to checkout.');
-    form.querySelector('button[type="submit"]').disabled = true;
   }
 
   // Toggle billing address visibility
@@ -69,7 +65,14 @@ if (form) {
       // ignore
     }
 
-    showMessage('Success! Your order has been placed.');
+    // Show completion modal using shared modal system and redirect on close
     form.reset();
+    showModal('Success! Your order has been placed.');
+    const mdl = document.getElementById('mdlInfo');
+    if (mdl) {
+      mdl.addEventListener('close', () => {
+        window.location.href = 'index.html';
+      }, { once: true });
+    }
   });
 }

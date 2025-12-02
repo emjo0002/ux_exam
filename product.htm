@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/single_product.css">
     <script type="module" src="./js/single-product.js"></script>
+    <script type="module" src="./js/modal.js"></script>
     <script type="module" src="./js/auth.js"></script>
     <title>Product | Fake shop</title>
 
@@ -28,8 +29,14 @@
         </ul>
     </nav>
 
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li>/</li>
+            <li aria-current="page"><span id="breadcrumb-current"></span></li>
+        </ul>
+    </nav>
     <main>
-        <p>Breadcumb</p>
         <section id="product-info">
             <img src="" alt="">
             <section>
@@ -56,6 +63,11 @@
     <footer>
         <p>Fake shop &copy; 2025</p>
     </footer>
+
+    <dialog id="mdlInfo">
+        <p></p>
+        <button type="button">Close</button>
+    </dialog>
 </body>
 
 </html>
