@@ -60,7 +60,6 @@ footer {
   border-top: 1px solid #ddd;
 }
 
-/* Front page product grid */
 #product-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -117,4 +116,3 @@ fieldset input {
   margin: 8px 0;
   padding: 8px;
 }
-
