@@ -6,15 +6,13 @@
 }
 
 main {
-
-    img {
-        max-width: 250px;
+    img {  
         align-self: center;
     }
 
   section {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr;
     padding: 0.5rem 1rem;
 
     .product-attribute {
@@ -44,8 +42,8 @@ main {
   main {
 
     #product-info {
-        display: flex;
-        flex-direction: row;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
         gap: var(--gap);
         padding: 0.5rem 1rem 1rem;
     }
