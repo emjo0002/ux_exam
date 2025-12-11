@@ -15,7 +15,8 @@ const getCartItems = () => {
       }
     }
     return [];
-  } catch (_) {
+  } catch (error) {
+    console.error(error);
     return [];
   }
 };
@@ -134,7 +135,8 @@ const init = async () => {
     summary.appendChild(emptyCartButton);
 
     container.appendChild(summary);
-  } catch (_) {
+  } catch (error) {
+    console.error(error);
     renderEmpty('Failed to load cart.');
   }
 };

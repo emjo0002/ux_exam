@@ -11,7 +11,7 @@ body {
     main {
         position: relative;
         top: 0;
-        max-width: 1050px;
+        max-width: var(--maxwidth);
         margin-inline: auto;
     }
 
@@ -128,4 +128,54 @@ fieldset input {
   width: 100%;
   margin: 8px 0;
   padding: 8px;
+}
+
+/* Header layout: logo + main nav left, utility nav right */
+.main-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  max-width: var(--maxwidth);
+  width: 100%;
+  margin-inline: auto;
+}
+
+.main-header .main-navigation ul,
+.main-header .utility-navigation ul {
+  display: flex;
+  gap: 16px;
+  list-style: none;
+}
+
+/* Push utility nav to the right */
+.main-header .utility-navigation {
+  margin-left: auto;
+}
+
+/* Ensure logo sizing remains consistent */
+.main-header > a img {
+  width: 50px;
+  height: auto;
+}
+
+/* Responsive gutters: avoid touching screen edges on small viewports */
+.main-header,
+main,
+footer {
+  padding-inline: 16px;
+}
+
+/* Constrain main width similar to header/products area */
+main {
+  max-width: var(--maxwidth);
+  width: 100%;
+  margin-inline: auto;
+}
+
+@media (min-width: 768px) {
+  .main-header,
+  main,
+  footer {
+    padding-inline: 24px;
+  }
 }
