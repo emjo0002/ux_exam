@@ -14,21 +14,21 @@ body {
     margin-inline: auto;
   }
 
+  background-color: #faf9f7;
 
-    background-color: #FAF9F7;
+  main {
+    position: relative;
+    top: 0;
+    max-width: var(--maxwidth);
+    margin-inline: auto;
+  }
 
-    main {
-        position: relative;
-        top: 0;
-        max-width: var(--maxwidth);
-        margin-inline: auto;
-    }
-
-    & > header, nav {
-        display: flex;
-        justify-content: center;
-        background-color: var(--colourBgMain);
-    }
+  .breadcrumb {
+    max-width: var(--maxwidth);
+    margin-inline: auto;
+    padding-inline: 24px;
+    margin-bottom: 24px;
+  }
 
   header {
     padding: 16px 0 8px;
@@ -55,13 +55,12 @@ body {
     }
   }
 
-    button {
-      background-color: var(--colorAccent);
-      color: white;
-      width: fit-content;
-      padding: 0.5rem 1rem;
-    }
-   
+  button {
+    background-color: var(--colorAccent);
+    color: white;
+    width: fit-content;
+    padding: 0.5rem 1rem;
+  }
 }
 
 img {
@@ -82,6 +81,16 @@ footer {
   border-top: 1px solid #ddd;
 }
 
+.footer-social ul {
+  justify-content: center;
+}
+
+.footer-social a img {
+  width: 28px;
+  height: auto;
+  margin-bottom: 16px;
+}
+
 #product-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -97,10 +106,10 @@ footer {
   flex-direction: column;
   gap: 8px;
 
-   h3 a {
-        text-decoration: none;
-        color: black;
-    }
+  h3 a {
+    text-decoration: none;
+    color: black;
+  }
 }
 
 .product h3 {
@@ -144,42 +153,43 @@ fieldset input {
   padding: 8px;
 }
 
-/* Header layout: logo + main nav left, utility nav right */
 .main-header {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  max-width: var(--maxwidth);
-  width: 100%;
-  margin-inline: auto;
+  background-color: var(--colourBgMain);
+  padding: 16px 0 8px;
+  margin-bottom: 32px;
+  .header-inner {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    max-width: var(--maxwidth);
+    width: 100%;
+    margin-inline: auto;
+    .main-navigation ul,
+    .utility-navigation {
+      margin-left: auto;
+      a.active {
+        font-weight: bold;
+        text-decoration: underline;
+      }
+    }
+    ul {
+      display: flex;
+      gap: 16px;
+      list-style: none;
+    }
+    > a img {
+      width: 50px;
+      height: auto;
+    }
+  }
 }
 
-.main-header .main-navigation ul,
-.main-header .utility-navigation ul {
-  display: flex;
-  gap: 16px;
-  list-style: none;
-}
-
-/* Push utility nav to the right */
-.main-header .utility-navigation {
-  margin-left: auto;
-}
-
-/* Ensure logo sizing remains consistent */
-.main-header > a img {
-  width: 50px;
-  height: auto;
-}
-
-/* Responsive gutters: avoid touching screen edges on small viewports */
-.main-header,
+.header-inner,
 main,
 footer {
   padding-inline: 16px;
 }
 
-/* Constrain main width similar to header/products area */
 main {
   max-width: var(--maxwidth);
   width: 100%;
@@ -187,7 +197,7 @@ main {
 }
 
 @media (min-width: 768px) {
-  .main-header,
+  .header-inner,
   main,
   footer {
     padding-inline: 24px;
