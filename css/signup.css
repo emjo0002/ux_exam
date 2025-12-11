@@ -1,2 +1,40 @@
 @import "style.css";
 @import "modal.css";
+
+#signup-form {
+  max-width: 420px;
+  margin: 72px auto 96px;
+  text-align: center;
+  h2 {
+    text-align: center;
+  }
+  label {
+    display: block;
+    text-align: left;
+    margin-top: 10px;
+  }
+    input[type="email"],
+    input[type="password"] {
+    width: 100%;
+    padding: 12px 14px;
+    margin: 8px 0;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background: #fff;
+  }
+  input:focus {
+    outline: none;
+    border-color: #cfcfcf;
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.04);
+  }
+    button[type="submit"] {
+    margin-top: 12px;
+    background-color: var(--colorAccent);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  p {
+    margin-top: 16px;
+  }
+}
