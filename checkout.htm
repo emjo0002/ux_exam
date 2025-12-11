@@ -12,22 +12,27 @@
 </head>
 
 <body>
-    <header>
-        <h1>Fake shop</h1>
+    <header class="main-header">
+        <a href="index.html" title="Homepage"><img src="public/logo/fakeshop_logo.png" alt="fake shop logo"></a>
+        <nav class="main-navigation">
+            <ul>
+                <li><a href="index.html" title="Homepage">Products</a></li>
+            </ul>
+        </nav>
+        <nav class="utility-navigation">
+            <ul>
+                <li><a href="cart.htm" title="Cart">Cart</a></li>
+                <li><a id="login-link" href="login.htm" title="Login">Login</a></li>
+                <li><a id="signup-link" href="signup.htm" title="Sign up">Sign up</a></li>
+                <li class="hidden"><a id="logout-link" href="#">Logout</a></li>
+            </ul>
+        </nav>
     </header>
-    <nav>
-        <ul>
-            <li><a href="index.html" title="Homepage">Home</a></li>
-            <li><a href="cart.htm" title="Cart">Cart</a></li>
-            <li><a id="login-link" href="login.htm" title="Login">Login</a></li>
-            <li class="hidden"><a id="logout-link" href="#">Logout</a></li>
-        </ul>
-    </nav>
 
     <main>
         <section id="checkout">
             <h2>Checkout</h2>
-            <form id="checkout-form" novalidate>
+            <form id="checkout-form">
                 <fieldset>
                     <legend>Delivery Address</legend>
                     <input type="text" id="delivery-name" name="deliveryName" placeholder="Full name" required>
@@ -37,14 +42,7 @@
                     <input type="text" id="delivery-country" name="deliveryCountry" placeholder="Country" required>
                 </fieldset>
 
-                <div class="form-control">
-                    <label for="billing-different">
-                        <input type="checkbox" id="billing-different" name="billingDifferent">
-                        Billing address is different
-                    </label>
-                </div>
-
-                <fieldset id="billing-fieldset" class="hidden">
+                <fieldset id="billing-fieldset">
                     <legend>Billing Address</legend>
                     <input type="text" id="billing-name" name="billingName" placeholder="Full name" required>
                     <input type="text" id="billing-address" name="billingAddress" placeholder="Address" required>
@@ -66,7 +64,6 @@
                 <button type="submit">Confirm Order</button>
             </form>
 
-            <div id="checkout-result" class="hidden"></div>
             <dialog id="mdlInfo">
                 <p></p>
                 <button type="button">Close</button>

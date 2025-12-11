@@ -7,6 +7,13 @@
 }
 
 body {
+  main {
+    position: relative;
+    top: 0;
+    max-width: var(--maxwidth);
+    margin-inline: auto;
+  }
+
 
     background-color: #FAF9F7;
 
@@ -23,35 +30,30 @@ body {
         background-color: var(--colourBgMain);
     }
 
-    header {
-        padding: 16px 0 8px;
+  header {
+    padding: 16px 0 8px;
 
-        img {
-            width: 50px;
-            height: auto;
-        }
+    img {
+      width: 50px;
+      height: auto;
     }
+  }
 
-    nav ul {
-        display: flex;
-        gap: 16px;
-        list-style: none;
-    }
+  nav ul {
+    display: flex;
+    gap: 16px;
+    list-style: none;
+  }
 
-    nav a {
-        text-decoration: none;
-        color: inherit;
-        
-           img {
-            width: 25px;
-            height: auto;
-        }
-    }
+  nav a {
+    text-decoration: none;
+    color: inherit;
 
-    nav a.active {
-        font-weight: 600;
-        text-decoration: underline;
+    img {
+      width: 25px;
+      height: auto;
     }
+  }
 
     button {
       background-color: var(--colorAccent);
@@ -70,7 +72,6 @@ img {
 .hidden {
   display: none;
 }
-
 
 footer {
   margin-top: 40px;

@@ -69,11 +69,7 @@ const init = async () => {
             <img src="${product.image}" alt="${product.title}" width="50" height="50" />
           </a>
           <a href="product.htm?id=${product.id}">${product.title}</a>
-          <div class="product-quantity">
-            <button type="button" class="quantity-change" data-product-id="${product.id}" data-change="-1">-</button>
-            <span>${cartItem.quantity}</span>
-            <button type="button" class="quantity-change" data-product-id="${product.id}" data-change="1">+</button>
-          </div>
+          <div class="quantity-selector"><span class="quantity" aria-label="Quantity">${cartItem.quantity}</span></div>
           <div class="product-price">${(product.price * cartItem.quantity).toFixed(2)} DKK</div>
           <button type="button" class="remove-item" data-product-id="${product.id}">Remove</button>
         </article>
@@ -98,22 +94,6 @@ const init = async () => {
     checkoutLink.textContent = 'Proceed to checkout';
     summary.appendChild(checkoutLink);
 
-    list.querySelectorAll('.quantity-change').forEach(button => {
-      button.addEventListener('click', () => {
-        const productId = Number(button.dataset.productId);
-        const change = Number(button.dataset.change);
-        const currentCartItems = getCartItems();
-        const itemToUpdate = currentCartItems.find(item => item.id === productId);
-
-        if (itemToUpdate) {
-          itemToUpdate.quantity += change;
-        }
-
-        const updatedCartItems = currentCartItems.filter(item => item.quantity > 0);
-        setCartItems(updatedCartItems);
-        init();
-      });
-    });
 
     list.querySelectorAll('.remove-item').forEach(removeButton => {
       removeButton.addEventListener('click', () => {
@@ -124,15 +104,6 @@ const init = async () => {
         init();
       });
     });
-
-    const emptyCartButton = document.createElement('button');
-    emptyCartButton.type = 'button';
-    emptyCartButton.textContent = 'Empty cart';
-    emptyCartButton.addEventListener('click', () => {
-      setCartItems([]);
-      init();
-    });
-    summary.appendChild(emptyCartButton);
 
     container.appendChild(summary);
   } catch (error) {
