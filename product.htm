@@ -15,17 +15,22 @@
 
 <body>
 
-    <header>
+    <header class="main-header">
         <a href="index.html" title="Homepage"><img src="public/logo/fakeshop_logo.png" alt="fake shop logo"></a>
+        <nav class="main-navigation">
+            <ul>
+                <li><a href="index.html" title="Homepage">Products</a></li>
+            </ul>
+        </nav>
+        <nav class="utility-navigation">
+            <ul>
+                <li><a href="cart.htm" title="Cart">Cart</a></li>
+                <li><a id="login-link" href="login.htm" title="Login">Login</a></li>
+                <li><a id="signup-link" href="signup.htm" title="Sign up">Sign up</a></li>
+                <li class="hidden"><a id="logout-link" href="#">Logout</a></li>
+            </ul>
+        </nav>
     </header>
-    <nav>
-        <ul>
-            <li><a href="index.html" title="Homepage">Home</a></li>
-            <li><a href="cart.htm" title="Cart">Cart</a></li>
-            <li><a id="login-link" href="login.htm" title="Login">Login</a></li>
-            <li class="hidden"><a id="logout-link" href="#">Logout</a></li>
-        </ul>
-    </nav>
 
     <nav class="breadcrumb" aria-label="Breadcrumb">
         <ul>
@@ -42,6 +47,7 @@
                     <span class="product-category"></span>
                     <h2></h2>
                 </header>
+                <p class="product-attribute product-rating"></p>
                 <p class="product-attribute product-price"></p>
                 <p class="product-attribute product-description"></p>
                 <div class="quantity-selector">
