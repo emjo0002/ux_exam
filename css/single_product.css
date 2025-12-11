@@ -46,7 +46,7 @@ main {
 }
 
 #related-products {
-  max-width: 1050px;
+  max-width: var(--maxwidth);
   margin: 0 auto;
   padding: 1rem;
 }

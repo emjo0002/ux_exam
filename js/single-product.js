@@ -11,21 +11,28 @@ fetch(`${BASE_URL}/${productID}`)
 })
 .catch(error => console.log(error));
 
-const showProduct = (info) => {
+const showProduct = (product) => {
     const productInfo = document.querySelector('#product-info');
 
-    productInfo.querySelector('h2').innerText = info.title;
+    productInfo.querySelector('h2').innerText = product.title;
     const breadcrumb = document.getElementById('breadcrumb-current');
-    if (breadcrumb) breadcrumb.textContent = info.title;
+    if (breadcrumb) breadcrumb.textContent = product.title;
 
     const thumbnail = productInfo.querySelector('img');
-    thumbnail.src = info.image;
-    thumbnail.alt = info.title;
+    thumbnail.src = product.image;
+    thumbnail.alt = product.title;
 
-    productInfo.querySelector('.product-price').innerText = `${info.price} DKK`;
-    productInfo.querySelector('.product-category').innerText = info.category;
+    productInfo.querySelector('.product-price').innerText = `${product.price} DKK`;
+    productInfo.querySelector('.product-category').innerText = product.category;
 
-    productInfo.querySelector('.product-description').innerText = info.description;
+    const ratingElement = productInfo.querySelector('.product-rating');
+    if (ratingElement && product.rating) {
+        const rate = product.rating.rate; 
+        const count = product.rating.count;
+        ratingElement.innerText = `${rate}/5 (${count})`;
+    }
+
+    productInfo.querySelector('.product-description').innerText = product.description;
     
     const btn = productInfo.querySelector('button');
     if (btn) {
@@ -45,7 +52,7 @@ const showProduct = (info) => {
                     toast.setAttribute('aria-live', 'polite');
                     document.body.appendChild(toast);
                 }
-                toast.innerHTML = `<strong>Added to cart</strong><br>${quantity} x ${productName}`;
+                toast.innerHTML = `<p><strong>Added to cart</strong></p><p>${quantity} x ${productName}</p>`;
                 toast.classList.add('show');
                 clearTimeout(toast._hideTimer);
                 toast._hideTimer = setTimeout(() => toast.classList.remove('show'), 3000);
@@ -76,12 +83,10 @@ const showProduct = (info) => {
                         }
 
                         localStorage.setItem(key, JSON.stringify(items));
-                        showCartToast(info.title, quantity);
-                    } catch (_) {
-                        // Fallback: at least try to save a minimal local cart
-                        const key = `${LOCAL_STORAGE_CART}${userEmail}`;
-                        localStorage.setItem(key, JSON.stringify([{ id: Number(productID), quantity }]));
-                        showCartToast(info.title, quantity);
+                        showCartToast(product.title, quantity);
+                    } catch (error) {
+                        console.error(error);
+                        showModal('Could not add to cart. Please try again.');
                     }
                 }
             });
