@@ -1,8 +1,8 @@
 /* HVIS VI IMPORTEDE SKULLE VI HUSKE KUN AT IMPORTERE DE FONTS OG WEIGHT VI BRUGER */
 
 :root {
-    --colourBgMain: #414833;
-    --colourBgComplementary: floralwhite;
+    --colourBgMain: #A3B18A;
+    --colorAccent: #5c412e;
     --colourBgNav: #656D4A;
 
     --fontTitle: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;

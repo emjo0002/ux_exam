@@ -29,11 +29,6 @@ main {
       font-size: 1.15rem;
     }
 
-    button {
-      width: fit-content;
-      padding: 0.5rem 1rem;
-    }
-
     .quantity-selector {
       margin: 0.5rem 0;
 
