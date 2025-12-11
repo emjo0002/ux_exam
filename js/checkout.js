@@ -2,9 +2,6 @@ import { LOCAL_STORAGE_USER_EMAIL, LOCAL_STORAGE_CART } from './info.js';
 import { showModal } from './modal.js';
 
 const form = document.querySelector('#checkout-form');
-const result = document.querySelector('#checkout-result');
-const billingToggle = document.querySelector('#billing-different');
-const billingFieldset = document.querySelector('#billing-fieldset');
 
 const getUserEmail = () => localStorage.getItem(LOCAL_STORAGE_USER_EMAIL);
 const cartKeyFor = (email) => `${LOCAL_STORAGE_CART}${email}`;
@@ -17,40 +14,10 @@ if (form) {
     showMessage('Please log in to proceed to checkout.');
   }
 
-  // Toggle billing address visibility
-  if (billingToggle && billingFieldset) {
-    const updateBillingVisibility = () => {
-      if (billingToggle.checked) {
-        billingFieldset.classList.remove('hidden');
-      } else {
-        billingFieldset.classList.add('hidden');
-      }
-    };
-    billingToggle.addEventListener('change', updateBillingVisibility);
-    updateBillingVisibility();
-  }
 
   form.addEventListener('submit', (event) => {
     event.preventDefault();
 
-    // Minimal client-side validation
-    const baseRequiredIds = [
-      'delivery-name','delivery-address','delivery-city','delivery-zip','delivery-country',
-      'cc-number','cc-exp','cc-cvc'
-    ];
-    const billingRequiredIds = [
-      'billing-name','billing-address','billing-city','billing-zip','billing-country'
-    ];
-    const requireBilling = !!(billingToggle && billingToggle.checked);
-    const requiredIds = requireBilling ? baseRequiredIds.concat(billingRequiredIds) : baseRequiredIds;
-
-    for (const id of requiredIds) {
-      const inputField = document.getElementById(id);
-      if (!inputField || !inputField.value.trim()) {
-        showMessage('Please fill out all fields.');
-        return;
-      }
-    }
 
     const email = getUserEmail();
     if (!email) {

@@ -22,6 +22,8 @@ const showProduct = (product) => {
     thumbnail.src = product.image;
     thumbnail.alt = product.title;
 
+    productInfo.querySelector('.product-description').innerText = product.description;
+
     productInfo.querySelector('.product-price').innerText = `${product.price} DKK`;
     productInfo.querySelector('.product-category').innerText = product.category;
 
@@ -29,10 +31,8 @@ const showProduct = (product) => {
     if (ratingElement && product.rating) {
         const rate = product.rating.rate; 
         const count = product.rating.count;
-        ratingElement.innerText = `${rate}/5 (${count})`;
+        ratingElement.innerText = `${rate}/5 (${count} reviews)`;
     }
-
-    productInfo.querySelector('.product-description').innerText = product.description;
     
     const btn = productInfo.querySelector('button');
     if (btn) {
@@ -43,27 +43,9 @@ const showProduct = (product) => {
                 showModal('You need to be logged in to add to cart');
             });
         } else {
-            const showCartToast = (productName, quantity) => {
-                let toast = document.getElementById('cart-toast');
-                if (!toast) {
-                    toast = document.createElement('div');
-                    toast.id = 'cart-toast';
-                    toast.setAttribute('role', 'status');
-                    toast.setAttribute('aria-live', 'polite');
-                    document.body.appendChild(toast);
-                }
-                toast.innerHTML = `<p><strong>Added to cart</strong></p><p>${quantity} x ${productName}</p>`;
-                toast.classList.add('show');
-                clearTimeout(toast._hideTimer);
-                toast._hideTimer = setTimeout(() => toast.classList.remove('show'), 3000);
-            };
-
             btn.addEventListener('click', () => {
-                const quantityInput = document.querySelector('#quantity');
-                const quantity = parseInt(quantityInput.value, 10);
-
-                if (quantity > 0) {
-                    try {
+                const quantity = 1;
+                try {
                         const key = `${LOCAL_STORAGE_CART}${userEmail}`;
                         
                         const localCartRaw = localStorage.getItem(key);
@@ -83,12 +65,11 @@ const showProduct = (product) => {
                         }
 
                         localStorage.setItem(key, JSON.stringify(items));
-                        showCartToast(product.title, quantity);
+                        showModal(`Product added to cart!`);
                     } catch (error) {
                         console.error(error);
                         showModal('Could not add to cart. Please try again.');
                     }
-                }
             });
         }
     }
