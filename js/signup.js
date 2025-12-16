@@ -9,7 +9,7 @@ if (container) {
 
     const email = document.getElementById('email').value.trim();
     const password = document.getElementById('password').value;
-    const password2 = document.getElementById('password2')?.value || '';
+    const password2 = document.getElementById('password2').value;
 
     const showFormError = (text) => { showModal(text); };
 
@@ -18,8 +18,8 @@ if (container) {
     if (!emailValid) { showFormError('Please enter a valid email address.'); return; }
 
     // Password: 8-20 chars, at least one lowercase, uppercase, number, and special character
-    const passwordPolicy = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,20}$/;
-    if (!passwordPolicy.test(password)) { showFormError('Password must be 8-20 chars and include lowercase, uppercase, number, and special character.'); return; }
+    const passwordValid = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,20}$/;
+    if (!passwordValid.test(password)) { showFormError('Password must be 8-20 chars and include lowercase, uppercase, number, and special character.'); return; }
 
     if (password !== password2) { showFormError('Passwords do not match.'); return; }
 
