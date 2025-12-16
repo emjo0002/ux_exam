@@ -18,7 +18,7 @@
     width: 100%;
     padding: 12px 14px;
     margin: 8px 0;
-    border: 1px solid #ddd;
+    border: var(--borderSize) solid var(--colorDarkGrey);
     border-radius: 10px;
     background: #fff;
   }

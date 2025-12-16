@@ -13,7 +13,7 @@
       display: grid;
       grid-template-columns: 2fr 2fr 1fr 1fr 1fr;
       align-items: center;
-      border-bottom: 1px solid black;
+      border-bottom: var(--borderSize) solid var(--colorJet);
       padding-bottom: 20px;
       margin-bottom: 20px;
       img {

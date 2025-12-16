@@ -1,6 +1,6 @@
 dialog#mdlInfo {
   width: min(420px, calc(100vw - 40px));
-  border: 1px solid #ddd;
+  border: var(--borderSize) solid var(--colorDarkGrey);
   border-radius: 10px;
   padding: 16px 18px;
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);

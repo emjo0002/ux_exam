@@ -2,13 +2,15 @@
 
 :root {
     --colorBrand: #A3B18A;
-    --colorAccent: #5C412E; 
-    --colorBg: #FAF9F7;
+    --colorAccent: #334d33; 
+    --colorBg: #f7f9f5;
     --colorWhite: #FFFFFF;
-    --colorJet: #2E2E2E;
+    --colorJet: #080808;
+    --colorDarkGrey: #474747;
 
     --fontTitle: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     --fontBody: Charter, "Bitstream Charter", "Sitka Text", Cambria, serif;
 
-    --maxwidth: 1024px
+    --maxwidth: 1024px;
+    --borderSize: 0.5px;
 }

@@ -7,14 +7,9 @@
 }
 
 body {
-  main {
-    position: relative;
-    top: 0;
-    max-width: var(--maxwidth);
-    margin-inline: auto;
-  }
+ 
 
-  background-color: #faf9f7;
+  background-color: var(--colorBg); 
 
   main {
     position: relative;
@@ -57,7 +52,7 @@ body {
 
   button {
     background-color: var(--colorAccent);
-    color: white;
+    color: var(--colorWhite);
     width: fit-content;
     padding: 0.5rem 1rem;
   }
@@ -78,7 +73,7 @@ footer {
   text-align: center;
   font-size: 0.85rem;
   color: #555;
-  border-top: 1px solid #ddd;
+  border-top: var(--borderSize) solid var(--colorDarkGrey);
 }
 
 .footer-social ul {
@@ -99,7 +94,7 @@ footer {
 }
 
 .product {
-  border: 1px solid #ddd;
+  border: var(--borderSize) solid var(--colorDarkGrey);
   border-radius: 4px;
   padding: 12px;
   display: flex;
@@ -108,7 +103,7 @@ footer {
 
   h3 a {
     text-decoration: none;
-    color: black;
+    color: var(--colorJet);
   }
 }
 
@@ -135,13 +130,13 @@ footer {
 
 .product-category {
   font-size: 0.85rem;
-  color: #666;
+  color: var(--colorDarkGrey);
 }
 
 fieldset {
   padding: 16px;
   margin-bottom: 16px;
-  border: 1px solid #ddd;
+  border: var(--borderSize) solid var(--colorWhite);
   border-radius: 4px;
   margin: 20px 0;
 }
@@ -154,7 +149,7 @@ fieldset input {
 }
 
 .main-header {
-  background-color: var(--colourBgMain);
+  background-color: var(--colorBrand);
   padding: 16px 0 8px;
   margin-bottom: 32px;
   .header-inner {
