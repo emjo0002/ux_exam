@@ -8,15 +8,20 @@
 
 body {
  
-
   background-color: var(--colorBg); 
 
   main {
     position: relative;
     top: 0;
     max-width: var(--maxwidth);
+    min-height: 65vh;
     margin-inline: auto;
   }
+
+  a {
+      text-decoration: none;
+      color: var(--colorJet);
+    }
 
   .breadcrumb {
     max-width: var(--maxwidth);
@@ -41,7 +46,6 @@ body {
   }
 
   nav a {
-    text-decoration: none;
     color: inherit;
 
     img {
@@ -55,6 +59,7 @@ body {
     color: var(--colorWhite);
     width: fit-content;
     padding: 0.5rem 1rem;
+    border: var(--borderSize) solid var(--colorDarkGrey);
   }
 }
 

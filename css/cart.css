@@ -20,6 +20,13 @@
         height: 250px;
         object-fit: contain;
       }
+
+      a + a {
+        text-decoration: none;
+        color: var(--colorJet);
+
+      }
+
       .product-quantity {
         display: flex;
         align-items: center;
@@ -36,9 +43,17 @@
 .cart-summary {
   margin-top: 10px;
   display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 4px;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 1.5%;
+
+    .btn-checkout {
+       background-color: var(--colorAccent);
+       color: var(--colorWhite);
+       width: fit-content;
+       padding: 0.5rem 1rem;
+       border: var(--borderSize) solid var(--colorDarkGrey);
+    }
 }
 
 .cart-total {
