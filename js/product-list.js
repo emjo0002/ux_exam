@@ -10,7 +10,7 @@ const renderProductCard = (product) => {
 
   const linkURL = `product.htm?id=${product.id}`;
 
-  const headerLink = productCard.querySelector('h3 > a');
+  const headerLink = productCard.querySelector('h2 > a');
   headerLink.innerText = product.title;
   assignLink(headerLink, linkURL, product.title);
   

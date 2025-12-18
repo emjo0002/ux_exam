@@ -31,7 +31,7 @@ const setCartItems = (cartItems) => {
 const renderEmpty = (msg) => {
   if (!container) return;
   container.innerHTML = `
-    <h2>Your Cart</h2>
+    <h1>Your Cart</h1>
     <p>${msg}</p>
   `;
 };
@@ -68,24 +68,24 @@ const init = async () => {
           <a href="product.htm?id=${product.id}">
             <img src="${product.image}" alt="${product.title}" width="50" height="50" />
           </a>
-          <a href="product.htm?id=${product.id}">${product.title}</a>
-          <div class="quantity-selector"><span class="quantity" aria-label="Quantity">${cartItem.quantity}</span></div>
-          <div class="product-price">${(product.price * cartItem.quantity).toFixed(2)} DKK</div>
+          <h2><a href="product.htm?id=${product.id}">${product.title}</a></h2>
+          <p>Quantity: <span class="quantity" aria-label="Quantity">${cartItem.quantity}</span></p>
+          <p class="product-price">${(product.price * cartItem.quantity).toFixed(2)} DKK</p>
           <button type="button" class="remove-item" data-product-id="${product.id}">Remove</button>
         </article>
       `;
       list.appendChild(li);
     });
 
-    container.innerHTML = '<h2>Your Cart</h2>';
+    container.innerHTML = '<h1>Your Cart</h1>';
     container.appendChild(list);
 
     const summary = document.createElement('div');
     summary.className = 'cart-summary';
 
-    const totalElement = document.createElement('div');
+    const totalElement = document.createElement('p');
     totalElement.className = 'cart-total';
-    totalElement.textContent = `Total: ${total.toFixed(2)} DKK`;
+    totalElement.innerHTML = `<span>Total:</span> ${total.toFixed(2)} DKK`;
     summary.appendChild(totalElement);
 
     const checkoutLink = document.createElement('a');

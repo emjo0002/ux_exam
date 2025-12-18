@@ -14,7 +14,7 @@ fetch(`${BASE_URL}/${productID}`)
 const showProduct = (product) => {
     const productInfo = document.querySelector('#product-info');
 
-    productInfo.querySelector('h2').innerText = product.title;
+    productInfo.querySelector('h1').innerText = product.title;
     const breadcrumb = document.getElementById('breadcrumb-current');
     if (breadcrumb) breadcrumb.textContent = product.title;
 
