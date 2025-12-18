@@ -3,7 +3,7 @@
 
 #login-form {
   max-width: 420px;
-  margin: 72px auto 96px;
+  margin: 4.5rem auto 6rem;
   text-align: center;
     label {
       display: block;
@@ -21,9 +21,10 @@
       background: var(--colorWhite);
     }
 
+
     input[type="text"] {
       width: 100%;
-      padding: var(--spacing-0-75) 14px;
+      padding: var(--spacing-0-75);
       margin: var(--spacing-0-5) 0;
       border: var(--borderSize) solid var(--colorDarkGrey);
       border-radius: var(--borderRadiusMedium);
@@ -34,7 +35,7 @@
     input:focus {
       outline: none;
       border-color: var(--colorDarkGrey);
-      box-shadow: 0 0 0 2px var(--colorJet);
+      box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.04);
     }
 
     #btn{

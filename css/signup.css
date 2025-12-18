@@ -3,14 +3,14 @@
 
 #signup-form {
   max-width: 420px;
-  margin: 72px auto 96px;
+  margin: 4.5rem auto 6rem;
   text-align: center;
 
-  label {
-    display: block;
-    text-align: left;
-    margin-top: var(--spacing-0-75);
-  }
+    label {
+      display: block;
+      text-align: left;
+      margin-top: var(--spacing-0-75);
+    }
 
     input[type="email"],
     input[type="password"] {
@@ -25,7 +25,7 @@
     input:focus {
       outline: none;
       border-color: var(--colorDarkGrey);
-      box-shadow: 0 0 0 2px var(--colorJet);
+      box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.04);
     }
     
     #btn {
