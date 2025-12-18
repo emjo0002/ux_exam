@@ -5,23 +5,13 @@
     },
     {
       "id": "7a6b",
-      "email": "test@test.dk",
-      "password": "a"
-    },
-    {
-      "id": "bb1e",
-      "email": "asdas@asda",
-      "password": "1"
-    },
-    {
-      "id": "be23",
-      "email": "1@1",
-      "password": "1"
+      "email": "e@e.dk",
+      "password": "Password1."
     },
     {
       "id": "8e59",
-      "email": "e@e.dk",
-      "password": "test"
+      "email": "r@r.dk",
+      "password": "Password1."
     }
   ]
 }

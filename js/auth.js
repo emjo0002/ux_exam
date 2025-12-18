@@ -1,6 +1,5 @@
 import { LOCAL_STORAGE_USER_EMAIL } from './info.js';
 
-// Check if user is logged in and toggle login/logout links
 const userEmail = localStorage.getItem(LOCAL_STORAGE_USER_EMAIL);
 const loginLink = document.getElementById('login-link');
 const logoutLink = document.getElementById('logout-link');
@@ -12,20 +11,18 @@ const signupItem = signupLink?.closest('li');
 const cartItem = cartLink?.closest('li');
 
 if (userEmail) {
-    // User is logged in, show logout and hide login
+
     if (loginItem) loginItem.classList.add("hidden");
     if (signupItem) signupItem.classList.add("hidden");
     if (logoutItem) logoutItem.classList.remove("hidden");
     if (cartItem) cartItem.classList.remove("hidden");
 } else {
-    // User is not logged in, show login and hide logout
     if (loginItem) loginItem.classList.remove("hidden");
     if (signupItem) signupItem.classList.remove("hidden");
     if (logoutItem) logoutItem.classList.add("hidden");
     if (cartItem) cartItem.classList.add("hidden");
 }
 
-// Handle logout click
 if (logoutLink) {
     logoutLink.addEventListener("click", (e) => {
         e.preventDefault();
