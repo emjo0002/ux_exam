@@ -12,10 +12,9 @@
 }
 
 #checkout-form {
-
   max-width: 720px;
   margin: var(--spacing-1) auto 48px;
-
+}
 
 #checkout-form fieldset {
   border: var(--borderSize) solid var(--colorDarkGrey);
