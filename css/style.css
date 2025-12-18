@@ -42,7 +42,7 @@ body {
     }
 
   header {
-    padding: 16px 0 8px;
+    padding: var(--spacing-1) 0 var(--spacing-0-5);
 
     img {
       width: 50px;
@@ -91,7 +91,7 @@ img {
 
 footer {
   margin-top: 40px;
-  padding: 16px 0;
+  padding: var(--spacing-1) 0;
   text-align: center;
   font-size: 0.85rem;
   color: #555;
@@ -106,12 +106,12 @@ footer {
 .footer-social a img {
   width: 28px;
   height: auto;
-  margin-bottom: 16px;
+  margin-bottom: var(--spacing-1);
 }
 
 fieldset {
-  padding: 16px;
-  margin-bottom: 16px;
+  padding: var(--spacing-1);
+  margin-bottom: var(--spacing-1);
   border: var(--borderSize) solid var(--colorWhite);
   border-radius: 4px;
   margin: 20px 0;
@@ -120,14 +120,14 @@ fieldset {
 fieldset input {
   display: block;
   width: 100%;
-  margin: 8px 0;
-  padding: 8px;
+  margin: var(--spacing-0-5) 0;
+  padding: var(--spacing-0-5);
 }
 
 .main-header {
   background-color: var(--colorBrand);
-  padding: 16px 0 8px;
-  margin-bottom: 32px;
+  padding: var(--spacing-1) 0 var(--spacing-0-5);
+  margin-bottom: var(--spacing-2);
   .header-inner {
     display: flex;
     align-items: center;
@@ -158,7 +158,7 @@ fieldset input {
 .header-inner,
 main,
 footer {
-  padding-inline: 16px;
+  padding-inline: var(--spacing-1);
 }
 
 main {
@@ -171,6 +171,6 @@ main {
   .header-inner,
   main,
   footer {
-    padding-inline: 24px;
+    padding-inline: var(--spacing-1-5);
   }
 }
