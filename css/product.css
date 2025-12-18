@@ -8,15 +8,15 @@ main {
     margin-bottom: var(--spacing-1-5);
     }
 
-    img {  
-        align-self: center;
-        max-width: var(--productImgMaxWidthMobile);
-    }
-
     #product-info {
       display: flex;
       flex-direction: column;
       padding: var(--spacing-0-5) var(--spacing-1);
+
+      img {  
+        align-self: center;
+        max-width: var(--productImgMaxWidthMobile);
+      }
 
       .product-attribute {
         margin: var(--spacing-0-75) 0;

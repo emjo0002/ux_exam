@@ -5,35 +5,38 @@
   max-width: 420px;
   margin: 72px auto 96px;
   text-align: center;
-  h2 {
-    text-align: center;
-  }
-  label {
-    display: block;
-    text-align: left;
-    margin-top: 10px;
-  }
-  input[type="email"],
-  input[type="password"] {
-    width: 100%;
-    padding: var(--spacing-0-75) var(--spacing-1);
-    margin: var(--spacing-0-5) 0;
-    border: var(--borderSize) solid var(--colorDarkGrey);
-    border-radius: var(--borderRadiusMedium);
-    background: #fff;
-  }
-  input:focus {
-    outline: none;
-    border-color: #cfcfcf;
-    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.04);
-  }
-  #btn {
-    margin-top: var(--spacing-0-75);
-  }
-  p {
-    margin-top: var(--spacing-1);
-  }
-  a {
-    text-decoration: underline;
-  }
+
+    label {
+      display: block;
+      text-align: left;
+      margin-top: 10px;
+    }
+
+    input[type="email"],
+    input[type="password"] {
+      width: 100%;
+      padding: var(--spacing-0-75) var(--spacing-1);
+      margin: var(--spacing-0-5) 0;
+      border: var(--borderSize) solid var(--colorDarkGrey);
+      border-radius: var(--borderRadiusMedium);
+      background: #fff;
+    }
+
+    input:focus {
+      outline: none;
+      border-color: #cfcfcf;
+      box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.04);
+    }
+
+    #btn {
+      margin-top: var(--spacing-0-75);
+    }
+
+    p {
+      margin-top: var(--spacing-1);
+    }
+    
+    a {
+      text-decoration: underline;
+    }
 }

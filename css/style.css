@@ -71,6 +71,7 @@ body {
 
   #btn, .btn {
     font-family: var(--fontBody);
+    font-size: var(--spacing-1);
     background-color: var(--colorAccent);
     color: var(--colorWhite);
     width: fit-content;
