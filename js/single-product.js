@@ -65,7 +65,11 @@ const showProduct = (product) => {
                         }
 
                         localStorage.setItem(key, JSON.stringify(items));
-                        showModal(`Product added to cart!`);
+                        showModal('Product added to cart. Close to stay, or go to cart.');
+                        const cartBtn = document.querySelector('#mdlInfo #btn');
+                        if (cartBtn) {
+                            cartBtn.addEventListener('click', () => { window.location.href = 'cart.htm'; }, { once: true });
+                        }
                     } catch (error) {
                         console.error(error);
                         showModal('Could not add to cart. Please try again.');
