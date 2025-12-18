@@ -66,12 +66,12 @@ const init = async () => {
       li.innerHTML = `
         <article class="product">
           <a href="product.htm?id=${product.id}">
-            <img src="${product.image}" alt="${product.title}" width="50" height="50" />
+            <img src="${product.image}" alt="${product.title}" />
           </a>
           <h2><a href="product.htm?id=${product.id}">${product.title}</a></h2>
           <p>Quantity: <span class="quantity" aria-label="Quantity">${cartItem.quantity}</span></p>
           <p class="product-price">${(product.price * cartItem.quantity).toFixed(2)} DKK</p>
-          <button type="button" class="remove-item" data-product-id="${product.id}">Remove</button>
+          <button type="button" id="btn" class="remove-item" data-product-id="${product.id}">Remove</button>
         </article>
       `;
       list.appendChild(li);
@@ -90,7 +90,7 @@ const init = async () => {
 
     const checkoutLink = document.createElement('a');
     checkoutLink.href = 'checkout.htm';
-    checkoutLink.className = 'btn-checkout';
+    checkoutLink.id = 'btn';
     checkoutLink.textContent = 'Proceed to checkout';
     summary.appendChild(checkoutLink);
 
