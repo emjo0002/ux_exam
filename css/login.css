@@ -18,13 +18,23 @@
       margin: var(--spacing-0-75) 0;
       border: var(--borderSize) solid var(--colorDarkGrey);
       border-radius: var(--borderRadiusMedium);
-      background: #fff;
+      background: var(--colorWhite);
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: var(--spacing-0-75) 14px;
+      margin: var(--spacing-0-5) 0;
+      border: var(--borderSize) solid var(--colorDarkGrey);
+      border-radius: var(--borderRadiusMedium);
+      background: var(--colorWhite);
+      color: var(--colorJet);
     }
 
     input:focus {
       outline: none;
-      border-color: #cfcfcf;
-      box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.04);
+      border-color: var(--colorDarkGrey);
+      box-shadow: 0 0 0 2px var(--colorJet);
     }
 
     #btn{
