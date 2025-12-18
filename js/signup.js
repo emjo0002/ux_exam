@@ -43,7 +43,7 @@ if (container) {
 
         const loginBtn = document.querySelector('#mdlInfo .btn');
         if (loginBtn) loginBtn.style.display = '';
-        const closeBtn = document.querySelector('#mdlInfo #btn');
+        const closeBtn = document.querySelector('#mdlInfo .btn-close');
 
         loginBtn?.addEventListener('click', () => {
           const raw = sessionStorage.getItem('pendingSignup');

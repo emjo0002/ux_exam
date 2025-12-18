@@ -48,5 +48,9 @@
     fieldset:focus-within {
       border-color: var(--colorAccent);
     }
+
+    .btn {
+      margin-top: var(--spacing-0-75);
+    }
   }
 }

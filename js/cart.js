@@ -71,7 +71,7 @@ const init = async () => {
           <h2><a href="product.htm?id=${product.id}">${product.title}</a></h2>
           <p>Quantity: <span class="quantity" aria-label="Quantity">${cartItem.quantity}</span></p>
           <p class="product-price">${(product.price * cartItem.quantity).toFixed(2)} DKK</p>
-          <button type="button" id="btn" class="remove-item" data-product-id="${product.id}">Remove</button>
+          <button type="button" class="btn remove-item" data-product-id="${product.id}">Remove</button>
         </article>
       `;
       list.appendChild(li);
@@ -90,7 +90,7 @@ const init = async () => {
 
     const checkoutLink = document.createElement('a');
     checkoutLink.href = 'checkout.htm';
-    checkoutLink.id = 'btn';
+    checkoutLink.className = 'btn';
     checkoutLink.textContent = 'Proceed to checkout';
     summary.appendChild(checkoutLink);
 

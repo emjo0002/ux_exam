@@ -69,7 +69,7 @@ body {
   text-decoration: underline;
 }
 
-  #btn, .btn {
+  .btn, .btn-close {
     font-family: var(--fontBody);
     font-size: var(--spacing-1);
     background-color: var(--colorAccent);
