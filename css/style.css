@@ -90,7 +90,7 @@ img {
 }
 
 footer {
-  margin-top: 40px;
+  margin-top: var(--spacing-2-5);
   padding: var(--spacing-1) 0;
   text-align: center;
   font-size: 0.85rem;
@@ -114,7 +114,7 @@ fieldset {
   margin-bottom: var(--spacing-1);
   border: var(--borderSize) solid var(--colorWhite);
   border-radius: var(--borderRadiusSmall);
-  margin: 20px 0;
+  margin: var(--spacing-1-5) 0;
 }
 
 fieldset input {

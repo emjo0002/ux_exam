@@ -6,11 +6,11 @@
   margin: 72px auto 96px;
   text-align: center;
 
-    label {
-      display: block;
-      text-align: left;
-      margin-top: 10px;
-    }
+  label {
+    display: block;
+    text-align: left;
+    margin-top: var(--spacing-0-75);
+  }
 
     input[type="email"],
     input[type="password"] {
