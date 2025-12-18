@@ -11,7 +11,11 @@ if (container) {
     const password = document.getElementById('password').value;
     const password2 = document.getElementById('password2').value;
 
-    const showFormError = (text) => { showModal(text); };
+    const showFormError = (text) => {
+      const loginLink = document.querySelector('#mdlInfo .btn');
+      if (loginLink) loginLink.style.display = 'none';
+      showModal(text);
+    };
 
     // Basic validation
     const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
@@ -30,8 +34,8 @@ if (container) {
         const exists = Array.isArray(users) && users.some(user => (user.email || '') === email);
         if (exists) {
           showModal('Email already exists. Try login instead.');
-          // Hide login button when user already exists (do not remove so it can be shown later)
-          const btn = document.querySelector('#mdlInfo #btn');
+          // Hide login link when user already exists (do not remove so it can be shown later)
+          const btn = document.querySelector('#mdlInfo .btn');
           if (btn) btn.style.display = 'none';
           return;
         }
@@ -42,9 +46,9 @@ if (container) {
         // Show modal and wire local handlers to flush on either button
         showModal('You have now created a user. Close to stay on the site, or go to the login page.');
 
-        const loginBtn = document.querySelector('#mdlInfo #btn');
+        const loginBtn = document.querySelector('#mdlInfo .btn');
         if (loginBtn) loginBtn.style.display = '';
-        const closeBtn = document.querySelector('#mdlInfo button:not(#btn)');
+        const closeBtn = document.querySelector('#mdlInfo #btn');
 
         loginBtn?.addEventListener('click', () => {
           const raw = sessionStorage.getItem('pendingSignup');
