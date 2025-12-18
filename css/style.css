@@ -109,25 +109,11 @@ footer {
   margin-bottom: var(--spacing-1);
 }
 
-fieldset {
-  padding: var(--spacing-1);
-  margin-bottom: var(--spacing-1);
-  border: var(--borderSize) solid var(--colorWhite);
-  border-radius: var(--borderRadiusSmall);
-  margin: var(--spacing-1-5) 0;
-}
-
-fieldset input {
-  display: block;
-  width: 100%;
-  margin: var(--spacing-0-5) 0;
-  padding: var(--spacing-0-5);
-}
-
 .main-header {
   background-color: var(--colorBrand);
   padding: var(--spacing-1) 0 var(--spacing-0-5);
   margin-bottom: var(--spacing-2);
+
   .header-inner {
     display: flex;
     align-items: center;
@@ -135,23 +121,27 @@ fieldset input {
     max-width: var(--maxWidthDekstop);
     width: 100%;
     margin-inline: auto;
-    .main-navigation ul,
-    .utility-navigation {
-      margin-left: auto;
-      a.active {
-        font-weight: bold;
-        text-decoration: underline;
+
+      .main-navigation ul,
+      .utility-navigation {
+        margin-left: auto;
+
+          a.active {
+            font-weight: bold;
+            text-decoration: underline;
+          }
       }
-    }
-    ul {
-      display: flex;
-      gap: var(--gapMedium);
-      list-style: none;
-    }
-    > a img {
-      width: 50px;
-      height: auto;
-    }
+
+      ul {
+        display: flex;
+        gap: var(--gapMedium);
+        list-style: none;
+      }
+
+      > a img {
+        width: 50px;
+        height: auto;
+      }
   }
 }
 

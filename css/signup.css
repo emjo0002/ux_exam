@@ -19,15 +19,15 @@
       margin: var(--spacing-0-5) 0;
       border: var(--borderSize) solid var(--colorDarkGrey);
       border-radius: var(--borderRadiusMedium);
-      background: #fff;
+      background: var(--colorWhite);
     }
 
     input:focus {
       outline: none;
-      border-color: #cfcfcf;
-      box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.04);
+      border-color: var(--colorDarkGrey);
+      box-shadow: 0 0 0 2px var(--colorJet);
     }
-
+    
     #btn {
       margin-top: var(--spacing-0-75);
     }
@@ -35,7 +35,7 @@
     p {
       margin-top: var(--spacing-1);
     }
-    
+
     a {
       text-decoration: underline;
     }
