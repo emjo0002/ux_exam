@@ -6,19 +6,18 @@
   margin-inline: auto;
 }
 
-#checkout h2 {
+#checkout h1 {
   text-align: center;
   margin-bottom: 16px;
 }
 
 #checkout-form {
-  max-width: 720px;
   margin: 16px auto 48px;
 }
 
 #checkout-form fieldset {
   border: var(--borderSize) solid var(--colorDarkGrey);
-  border-radius: 12px;
+  border-radius: var(--borderRadiusBig);
   padding: 16px 16px 20px;
 }
 
@@ -37,7 +36,7 @@
   padding: 12px 14px;
   margin: 8px 0;
   border: var(--borderSize) solid var(--colorDarkGrey);
-  border-radius: 10px;
+  border-radius: var(--borderRadiusMedium);
   background: var(--colorWhite);
   color: var(--colorJet);
 }

@@ -19,7 +19,7 @@
     padding: 12px 14px;
     margin: 8px 0;
     border: var(--borderSize) solid var(--colorDarkGrey);
-    border-radius: 10px;
+    border-radius: var(--borderRadiusMedium);
     background: #fff;
   }
   input:focus {
@@ -27,12 +27,8 @@
     border-color: #cfcfcf;
     box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.04);
   }
-    button[type="submit"] {
-    margin-top: 12px;
-    background-color: var(--colorAccent);
-    color: #fff;
-    border: none;
-    cursor: pointer;
+  #btn{
+    margin-top: 12px;    
   }
   p {
     margin-top: 16px;

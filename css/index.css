@@ -9,7 +9,7 @@
 
 .product {
   border: var(--borderSize) solid var(--colorDarkGrey);
-  border-radius: 4px;
+  border-radius: var(--borderSizeSmall);
   padding: 12px;
   display: flex;
   flex-direction: column;
