@@ -1,2 +1,46 @@
 @import "style.css";
 @import "modal.css";
+
+#checkout {
+  max-width: 800px;
+  margin-inline: auto;
+}
+
+#checkout-form {
+  max-width: 720px;
+  margin: 16px auto 48px;
+}
+
+#checkout-form fieldset {
+  border: var(--borderSize) solid var(--colorDarkGrey);
+  border-radius: 12px;
+  padding: 16px 16px 20px;
+}
+
+#checkout-form legend {
+  padding: 0 8px;
+}
+
+#checkout-form label {
+  display: block;
+  text-align: left;
+  margin-top: 10px;
+}
+
+#checkout-form input[type="text"] {
+  width: 100%;
+  padding: 12px 14px;
+  margin: 8px 0;
+  border: var(--borderSize) solid var(--colorDarkGrey);
+  border-radius: 10px;
+  background: transparent;
+}
+
+#checkout-form input:focus {
+  outline: none;
+  border-color: var(--colorAccent);
+}
+
+#checkout-form fieldset:focus-within {
+  border-color: var(--colorAccent);
+}
