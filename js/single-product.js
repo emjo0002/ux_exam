@@ -40,6 +40,8 @@ const showProduct = (product) => {
 
         if (!userEmail) {
             btn.addEventListener('click', () => {
+                const cartLink = document.querySelector('#mdlInfo .btn');
+                if (cartLink) cartLink.style.display = 'none';
                 showModal('You need to be logged in to add to cart');
             });
         } else {
@@ -65,11 +67,9 @@ const showProduct = (product) => {
                         }
 
                         localStorage.setItem(key, JSON.stringify(items));
-                        showModal('Product added to cart. Close to stay, or go to cart.');
-                        const cartBtn = document.querySelector('#mdlInfo #btn');
-                        if (cartBtn) {
-                            cartBtn.addEventListener('click', () => { window.location.href = 'cart.htm'; }, { once: true });
-                        }
+                        showModal('Product added to cart.');
+                        const cartLink = document.querySelector('#mdlInfo .btn');
+                        if (cartLink) cartLink.style.display = '';
                     } catch (error) {
                         console.error(error);
                         showModal('Could not add to cart. Please try again.');
