@@ -25,14 +25,12 @@ if (form) {
       return;
     }
 
-    // Clear the current user's cart from localStorage
     try {
       localStorage.removeItem(cartKeyFor(email));
-    } catch (_) {
-      // ignore
+    } catch (error) {
+      console.error(error);
     }
 
-    // Show completion modal using shared modal system and redirect on close
     form.reset();
     showModal('Success! Your order has been placed.');
     const mdl = document.getElementById('mdlInfo');
