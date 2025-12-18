@@ -12,12 +12,12 @@
 
     #checkout-form {
     max-width: 720px;
-    margin: var(--spacing-1) auto 48px;
+    margin: var(--spacing-1) auto var(--spacing-3);
 
     fieldset {
       border: var(--borderSize) solid var(--colorDarkGrey);
       border-radius: 12px;
-      padding: var(--spacing-1) var(--spacing-1) 20px;
+      padding: var(--spacing-1) var(--spacing-1) var(--spacing-1-5);
     }
 
     legend {
@@ -27,7 +27,7 @@
     label {
       display: block;
       text-align: left;
-      margin-top: 10px;
+      margin-top: var(--spacing-0-75);
     }
 
     input[type="text"] {
@@ -48,9 +48,5 @@
     fieldset:focus-within {
       border-color: var(--colorAccent);
     }
+  }
 }
-}
-
-
-
-
