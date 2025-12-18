@@ -44,7 +44,8 @@
                     <label for="delivery-city">City</label>
                     <input type="text" id="delivery-city" name="deliveryCity" required>
                     <label for="delivery-zip">ZIP</label>
-                    <input type="text" id="delivery-zip" name="deliveryZip" required>
+                    <input type="text" id="delivery-zip" name="deliveryZip" inputmode="numeric" pattern="\\d{3,10}"
+                        title="ZIP must be 3-10 digits" required>
                     <label for="delivery-country">Country</label>
                     <input type="text" id="delivery-country" name="deliveryCountry" required>
                 </fieldset>
@@ -67,11 +68,13 @@
                     <legend>Payment</legend>
                     <label for="cc-number">Credit card number</label>
                     <input type="text" id="cc-number" name="payCardNumber" inputmode="numeric" autocomplete="off"
-                        required>
+                        pattern="\\d{12,19}" title="Enter 12-19 digits" required>
                     <label for="cc-exp">MM/YY</label>
-                    <input type="text" id="cc-exp" name="payCardExp" inputmode="numeric" autocomplete="off" required>
+                    <input type="text" id="cc-exp" name="payCardExp" inputmode="numeric" autocomplete="off"
+                        pattern="^(0[1-9]|1[0-2])\\/\\d{2}$" title="Use MM/YY format" required>
                     <label for="cc-cvc">CVC</label>
-                    <input type="text" id="cc-cvc" name="payCardCvc" inputmode="numeric" autocomplete="off" required>
+                    <input type="text" id="cc-cvc" name="payCardCvc" inputmode="numeric" autocomplete="off"
+                        pattern="\\d{3,4}" title="3 or 4 digits" required>
                 </fieldset>
 
                 <button type="submit" id="btn">Confirm Order</button>

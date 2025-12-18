@@ -4,8 +4,8 @@
 main {
 
     .breadcrumb {
-    padding-inline: 24px;
-    margin-bottom: 24px;
+    padding-inline: var(--spacing-1-5);
+    margin-bottom: var(--spacing-1-5);
     }
 
     img {  
@@ -16,14 +16,14 @@ main {
     #product-info {
       display: flex;
       flex-direction: column;
-      padding: 0.5rem 1rem;
+      padding: var(--spacing-0-5) var(--spacing-1);
 
       .product-attribute {
-        margin: 0.75rem 0;
+        margin: var(--spacing-0-75) 0;
       }
 
       h1 {
-        padding-top: 0.5rem;
+        padding-top: var(--spacing-0-75);
         font-size: 1.5rem;
       }
 
