@@ -1,41 +1,36 @@
 @import "style.css";
 @import "modal.css";
 
-:root {
-  --gap: 2rem;
-}
-
 main {
+
+    .breadcrumb {
+    padding-inline: 24px;
+    margin-bottom: 24px;
+    }
+
     img {  
         align-self: center;
+        max-width: var(--productImgMaxWidthMobile);
     }
 
-  section {
-    display: grid;
-    grid-template-columns: 1fr;
-    padding: 0.5rem 1rem;
+    #product-info {
+      display: flex;
+      flex-direction: column;
+      padding: 0.5rem 1rem;
 
-    .product-attribute {
-      margin: 0.5rem 0;
-    }
+      .product-attribute {
+        margin: 0.75rem 0;
+      }
 
-    h2 {
-      font-size: 1.5rem;
-    }
+      h1 {
+        padding-top: 0.5rem;
+        font-size: 1.5rem;
+      }
 
-    .product-price {
-      font-size: 1.15rem;
-    }
-
-    .quantity-selector {
-      margin: 0.5rem 0;
-
-      input {
-        width: 50px;
-        padding: 0.25rem;
+      .product-price {
+        font-size: 1.15rem;
       }
     }
-  }
 }
 
 @media (min-width: 768px) {
@@ -44,29 +39,25 @@ main {
     #product-info {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: var(--gap);
+        gap: var(--gapBig);
         padding: 0.5rem 1rem 1rem;
+
+        img {
+          max-width: var(--productImgMaxWidthDesktop);
+        }
 
         section {
           display: flex;
           flex-direction: column;
+
+          h1 {
+            font-size: 2rem;
+          }
+
+          .product-price {
+            font-size: 1.25rem;
+          }
         }
-    }
-
-    img {
-      max-width: 350px;
-    }
-
-    section {
-      gap: 1rem;
-
-      h2 {
-        font-size: 2rem;
-      }
-
-      .product-price {
-        font-size: 1.25rem;
-      }
     }
   }
 }

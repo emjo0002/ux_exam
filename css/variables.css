@@ -1,6 +1,9 @@
-/* HVIS VI IMPORTEDE SKULLE VI HUSKE KUN AT IMPORTERE DE FONTS OG WEIGHT VI BRUGER */
-
 :root {
+
+    --fontTitle: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --fontBody: Charter, "Bitstream Charter", "Sitka Text", Cambria, serif;
+
+
     --colorBrand: #A3B18A;
     --colorAccent: #334d33; 
     --colorBg: #f7f9f5;
@@ -8,9 +11,14 @@
     --colorJet: #080808;
     --colorDarkGrey: #474747;
 
-    --fontTitle: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    --fontBody: Charter, "Bitstream Charter", "Sitka Text", Cambria, serif;
-
-    --maxwidth: 1024px;
+    --maxWidthDekstop: 1024px;
+    --maxWidthMobile: 600px;
     --borderSize: 0.5px;
+    --gapSmall: 0.5rem;
+    --gapMedium: 1rem;
+    --gapBig: 2rem;
+
+
+    --productImgMaxWidthMobile: 300px;
+    --productImgMaxWidthDesktop: 300px;
 }
