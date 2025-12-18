@@ -136,6 +136,10 @@ footer {
 .product-category {
   font-size: 0.85rem;
   color: var(--colorDarkGrey);
+  display: inline-block;
+  &::first-letter {
+    text-transform: uppercase;
+  }
 }
 
 fieldset {
