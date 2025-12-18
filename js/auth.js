@@ -30,6 +30,6 @@ if (logoutLink) {
     logoutLink.addEventListener("click", (e) => {
         e.preventDefault();
         localStorage.removeItem(LOCAL_STORAGE_USER_EMAIL);
-        window.location.reload();
+        window.location.href = 'index.html';
     });
 }
