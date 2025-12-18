@@ -6,6 +6,11 @@
   margin-inline: auto;
 }
 
+#checkout h2 {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
 #checkout-form {
   max-width: 720px;
   margin: 16px auto 48px;
@@ -33,7 +38,8 @@
   margin: 8px 0;
   border: var(--borderSize) solid var(--colorDarkGrey);
   border-radius: 10px;
-  background: transparent;
+  background: var(--colorWhite);
+  color: var(--colorJet);
 }
 
 #checkout-form input:focus {
